@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     android:background="@color/purple">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -42,7 +42,6 @@
 
 
     </LinearLayout>
-
     <EditText
         android:id="@+id/search_editText"
         android:layout_width="match_parent"
@@ -56,22 +55,19 @@
         android:paddingRight="16dp"
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
+        android:layout_below="@+id/linearLayout_top"/>
     <LinearLayout
         android:id="@+id/linear_bottom"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:background="@color/editbackground"
         android:orientation="horizontal"
         android:weightSum="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_alignParentBottom="true"
+       >
 
         <ImageView
+            android:id="@+id/music_image"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -80,6 +76,7 @@
             android:src="@drawable/music_before" />
 
         <ImageView
+            android:id="@+id/fav_image"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -88,6 +85,7 @@
             android:src="@drawable/fav_before" />
 
         <ImageView
+            android:id="@+id/playlist_image"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -96,19 +94,14 @@
             android:src="@drawable/play_before" />
 
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/view_pager"
+    <LinearLayout
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/linear_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_editText">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@+id/search_editText"
+        android:orientation="vertical"
+        android:layout_above="@+id/linear_bottom">
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
